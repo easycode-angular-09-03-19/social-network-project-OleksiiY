@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { GlobalAuthService } from '../../../../commonServices/global-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,15 +18,23 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
+    private globalAuthService: GlobalAuthService
   ) { }
 
   ngOnInit() {
-
+    if (this.globalAuthService.isLogin) {
+      this.router.navigate(['/']);
+    }
   }
 
   onSubmit() {
     this.authService.login({...this.loginForm.value }).subscribe((res) => {
       this.router.navigate(['/']);
+    }, (err) => {
+      if (err) {
+        this.loginForm.setValue({email: '', password: ''});
+      }
     });
+
   }
 }
