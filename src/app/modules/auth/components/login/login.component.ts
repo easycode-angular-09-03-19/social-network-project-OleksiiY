@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { GlobalAuthService } from '../../../../commonServices/global-auth.service';
+import { GlobalAuthService } from '../../../../common-services/global-auth.service';
 
 @Component({
   selector: 'app-login',
