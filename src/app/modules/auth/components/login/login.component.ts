@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GlobalAuthService } from '../../../../common-services/global-auth.service';
+import { LoginServerAnswer } from '../../interfaces/LoginServerAnswer';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.login({...this.loginForm.value }).subscribe((res) => {
+    this.authService.login({...this.loginForm.value }).subscribe((res: LoginServerAnswer) => {
       if (!res.error) {
         this.router.navigate(['/']);
       }
