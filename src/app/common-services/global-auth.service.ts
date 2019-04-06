@@ -8,7 +8,7 @@ export class GlobalAuthService {
   constructor() { }
 
   get isLogin(): boolean {
-    if (localStorage.getItem('sn_app_token')){
+    if (localStorage.getItem('sn_app_token')) {
       return true;
     } else {
     return false;
