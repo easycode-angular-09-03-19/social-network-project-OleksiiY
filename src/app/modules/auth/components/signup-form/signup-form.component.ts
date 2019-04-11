@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Genders } from '../../interfaces/Genders';
 import { LoginServerAnswer } from '../../interfaces/LoginServerAnswer';
 import { ErrorStateMatcher } from '@angular/material';
+import { MessageService } from 'primeng/api';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -30,7 +31,8 @@ export class SignupFormComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private route: Router
+    private route: Router,
+    private messageService: MessageService
   ) {
   }
 
@@ -52,6 +54,7 @@ export class SignupFormComponent implements OnInit {
 
   onSubmit() {
     if (this.signUpForm.invalid) {
+      this.messageService.add({severity: 'error', summary: 'Error', detail: 'Validation failed'});
       return console.log('Validate error');
     }
     const signUpInfo = Object.assign({}, this.signUpForm.value);
@@ -64,7 +67,8 @@ export class SignupFormComponent implements OnInit {
       if (!res.error) {
         this.route.navigate(['/auth/login']);
       }
-    }, (err) => {
+    }, err => {
+      this.messageService.add({severity: 'error', summary: 'Error', detail: 'Server Error'});
       console.log(err);
     });
   }

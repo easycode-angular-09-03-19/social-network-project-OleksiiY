@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GlobalAuthService } from '../../../../common/services/global-auth.service';
 import { LoginServerAnswer } from '../../interfaces/LoginServerAnswer';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-login-form',
@@ -19,7 +20,8 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private globalAuthService: GlobalAuthService
+    private globalAuthService: GlobalAuthService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
@@ -29,10 +31,17 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.loginForm.invalid) {
+      this.messageService.add({severity: 'error', summary: 'Error', detail: 'Validation failed'});
+      return console.log('Validate error');
+    }
     this.authService.login({...this.loginForm.value }).subscribe((res: LoginServerAnswer) => {
       if (!res.error) {
         this.router.navigate(['/']);
       }
+    }, err => {
+      this.messageService.add({severity: 'error', summary: 'Error', detail: 'Server Error'});
+      console.log(err);
     });
 
   }

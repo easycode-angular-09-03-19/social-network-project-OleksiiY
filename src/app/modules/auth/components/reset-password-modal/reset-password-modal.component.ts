@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { ResetPasswordServerAnswer } from '../../interfaces/ResetPasswordServerAnswer';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-reset-password-modal',
@@ -14,6 +15,7 @@ export class ResetPasswordModalComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private messageService: MessageService
   ) {
   }
 
@@ -29,13 +31,15 @@ export class ResetPasswordModalComponent implements OnInit {
 
   onSubmit() {
     if (this.resetPasswordForm.invalid) {
+      this.messageService.add({severity: 'error', summary: 'Error', detail: 'Validation failed'});
       return console.log('Validate error');
     }
     this.authService.resetPassword({...this.resetPasswordForm.value}).subscribe((res: ResetPasswordServerAnswer) => {
       if (!res.error) {
         this.modalCloseEvent.emit();
       }
-    }, (err) => {
+    }, err => {
+      this.messageService.add({severity: 'error', summary: 'Error', detail: 'Server Error'});
       console.log(err);
     });
   }
