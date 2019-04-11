@@ -28,15 +28,16 @@ export class ResetPasswordModalComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.resetPasswordForm.valid) {
-      this.authService.resetPassword({...this.resetPasswordForm.value}).subscribe((res: ResetPasswordServerAnswer) => {
-        if (!res.error) {
-          this.modalCloseEvent.emit();
-        }
-      }, (err) => {
-        console.log(err);
-      });
+    if (this.resetPasswordForm.invalid) {
+      return console.log('Validate error');
     }
+    this.authService.resetPassword({...this.resetPasswordForm.value}).subscribe((res: ResetPasswordServerAnswer) => {
+      if (!res.error) {
+        this.modalCloseEvent.emit();
+      }
+    }, (err) => {
+      console.log(err);
+    });
   }
 
 }

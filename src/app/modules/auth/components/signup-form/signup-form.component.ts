@@ -51,21 +51,22 @@ export class SignupFormComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.signUpForm.valid) {
-      const signUpInfo = Object.assign({}, this.signUpForm.value);
-      signUpInfo['date_of_birth_day'] = signUpInfo.dob.getDay();
-      signUpInfo['date_of_birth_month'] = signUpInfo.dob.getMonth();
-      signUpInfo['date_of_birth_year'] = signUpInfo.dob.getFullYear();
-      delete signUpInfo['repeatPassword'];
-      delete signUpInfo['dob'];
-      this.authService.signUp(signUpInfo).subscribe((res: LoginServerAnswer) => {
-        if (!res.error) {
-          this.route.navigate(['/auth/login']);
-        }
-      }, (err) => {
-        console.log(err);
-      });
+    if (this.signUpForm.invalid) {
+      return console.log('Validate error');
     }
-
+    const signUpInfo = Object.assign({}, this.signUpForm.value);
+    signUpInfo['date_of_birth_day'] = signUpInfo.dob.getDay();
+    signUpInfo['date_of_birth_month'] = signUpInfo.dob.getMonth();
+    signUpInfo['date_of_birth_year'] = signUpInfo.dob.getFullYear();
+    delete signUpInfo['repeatPassword'];
+    delete signUpInfo['dob'];
+    this.authService.signUp(signUpInfo).subscribe((res: LoginServerAnswer) => {
+      if (!res.error) {
+        this.route.navigate(['/auth/login']);
+      }
+    }, (err) => {
+      console.log(err);
+    });
   }
+
 }
