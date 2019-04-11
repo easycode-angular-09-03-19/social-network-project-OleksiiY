@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
+import { environment } from '@env/environment';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { LoginServerAnswer } from '../interfaces/LoginServerAnswer';
+import { SignUpServerAnswer } from '../interfaces/SignUpServerAnswer';
+import { ResetPasswordServerAnswer } from '../interfaces/ResetPasswordServerAnswer';
 
 @Injectable()
 export class AuthService {
@@ -23,6 +25,14 @@ export class AuthService {
         return res;
       })
     );
+  }
+
+  signUp(data): Observable<SignUpServerAnswer> {
+    return this.http.post<SignUpServerAnswer>(`${this.apiUrl}/public/auth/signup`, data);
+  }
+
+  resetPassword(email): Observable<ResetPasswordServerAnswer> {
+    return this.http.post<ResetPasswordServerAnswer>(`${this.apiUrl}/public/auth/reset-password`, email);
   }
 
 }
