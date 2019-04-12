@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import { passwordEqualForInput} from '@helpers/validators';
+import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { passwordEqualForInput } from '@helpers/validators';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { Genders } from '../../interfaces/Genders';
-import { LoginServerAnswer } from '../../interfaces/LoginServerAnswer';
 import { ErrorStateMatcher } from '@angular/material';
 import { MessageService } from 'primeng/api';
+import { SignUpServerAnswer } from '../../interfaces/SignUpServerAnswer';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -63,7 +63,7 @@ export class SignupFormComponent implements OnInit {
     signUpInfo['date_of_birth_year'] = signUpInfo.dob.getFullYear();
     delete signUpInfo['repeatPassword'];
     delete signUpInfo['dob'];
-    this.authService.signUp(signUpInfo).subscribe((res: LoginServerAnswer) => {
+    this.authService.signUp(signUpInfo).subscribe((res: SignUpServerAnswer) => {
       if (!res.error) {
         this.route.navigate(['/auth/login']);
       }
