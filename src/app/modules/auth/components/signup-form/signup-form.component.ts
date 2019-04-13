@@ -24,9 +24,9 @@ export class SignupFormComponent implements OnInit {
   signUpForm: FormGroup;
   matcher = new MyErrorStateMatcher();
   public genders: Genders[] = [
-    {value: 'male'},
-    {value: 'female'},
-    {value: 'other'}
+    { value: 'male' },
+    { value: 'female' },
+    { value: 'other' }
   ];
 
   constructor(
@@ -54,7 +54,7 @@ export class SignupFormComponent implements OnInit {
 
   onSubmit() {
     if (this.signUpForm.invalid) {
-      this.messageService.add({severity: 'error', summary: 'Error', detail: 'Validation failed'});
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Validation failed' });
       return console.log('Validate error');
     }
     const signUpInfo = Object.assign({}, this.signUpForm.value);
@@ -68,7 +68,7 @@ export class SignupFormComponent implements OnInit {
         this.route.navigate(['/auth/login']);
       }
     }, err => {
-      this.messageService.add({severity: 'error', summary: 'Error', detail: 'Server Error'});
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Server Error' });
       console.log(err);
     });
   }

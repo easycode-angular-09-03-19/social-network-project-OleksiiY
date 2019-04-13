@@ -21,7 +21,8 @@
       placeholder="Password"
       formControlName="password"
     >
-    <mat-error *ngIf="loginForm.get('password').hasError('minlength') && !loginForm.get('password').hasError('required')">
+    <mat-error
+      *ngIf="loginForm.get('password').hasError('minlength') && !loginForm.get('password').hasError('required')">
       Please enter a valid password
     </mat-error>
     <mat-error *ngIf="loginForm.get('password').hasError('required')">

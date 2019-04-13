@@ -125,7 +125,8 @@
     <mat-error *ngIf="signUpForm.get('repeatPassword').hasError('required')">
       Password required
     </mat-error>
-    <mat-error *ngIf="signUpForm.get('repeatPassword').hasError('notEqual') && !signUpForm.get('repeatPassword').hasError('required')">
+    <mat-error
+      *ngIf="signUpForm.get('repeatPassword').hasError('notEqual') && !signUpForm.get('repeatPassword').hasError('required')">
       Passwords is not equal
     </mat-error>
   </mat-form-field>

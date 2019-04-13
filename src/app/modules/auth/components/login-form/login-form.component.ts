@@ -22,7 +22,8 @@ export class LoginFormComponent implements OnInit {
     private router: Router,
     private globalAuthService: GlobalAuthService,
     private messageService: MessageService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     if (this.globalAuthService.isLogin) {
@@ -32,15 +33,15 @@ export class LoginFormComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.invalid) {
-      this.messageService.add({severity: 'error', summary: 'Error', detail: 'Validation failed'});
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Validation failed' });
       return console.log('Validate error');
     }
-    this.authService.login({...this.loginForm.value }).subscribe((res: LoginServerAnswer) => {
+    this.authService.login({ ...this.loginForm.value }).subscribe((res: LoginServerAnswer) => {
       if (!res.error) {
         this.router.navigate(['/']);
       }
     }, err => {
-      this.messageService.add({severity: 'error', summary: 'Error', detail: 'Server Error'});
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Server Error' });
       console.log(err);
     });
 
