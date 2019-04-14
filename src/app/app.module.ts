@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-
+import { NavbarComponent } from './common/components/navbar/navbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,6 +21,7 @@ import { MessageService } from 'primeng/api';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastModule,
+    MatToolbarModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
