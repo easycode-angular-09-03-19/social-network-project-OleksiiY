@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ActivationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { GlobalNotificationService } from '../../services/global-notification.service';
+import { GlobalNotificationService } from '../../../../common/services/global-notification.service';
 
 
 @Component({
