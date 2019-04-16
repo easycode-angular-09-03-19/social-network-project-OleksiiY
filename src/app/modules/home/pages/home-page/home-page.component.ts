@@ -23,8 +23,6 @@ export class HomePageComponent implements OnInit {
     ).subscribe(([homePageData, { challenges }]: any) => {
       this.homePageData = homePageData;
       this.challenges = challenges;
-      console.log('homePageData', homePageData);
-      console.log('this.challenges', this.challenges);
     }, err => {
       console.log(err);
     });
