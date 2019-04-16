@@ -1,0 +1,13 @@
+.container {
+  margin:30px 0;
+}
+
+.empty-list-info {
+  display: block;
+  font-family: mr_de_havilandregular,serif;
+  font-size: 60px;
+  color: #585858;
+  opacity: .2;
+  cursor: default;
+  text-align: center;
+}
