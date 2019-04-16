@@ -32,3 +32,9 @@
   height: 100%;
 }
 
+.notification-icon {
+  flex-grow: 1;
+  text-align: right;
+  cursor: pointer;
+  margin-right: 10px;
+}
