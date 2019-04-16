@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../services/home.service';
 import { zip } from 'rxjs';
+import { HomePageData } from '../../interfaces/HomePageData';
 
 @Component({
   selector: 'app-home-page',
@@ -8,7 +9,7 @@ import { zip } from 'rxjs';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  homePageData; // Нужно будет написать интерфейс
+  homePageData: HomePageData;
   challenges;
   constructor(
     private homeService: HomeService
@@ -22,8 +23,8 @@ export class HomePageComponent implements OnInit {
     ).subscribe(([homePageData, { challenges }]: any) => {
       this.homePageData = homePageData;
       this.challenges = challenges;
-      console.log(homePageData);
-      console.log(challenges);
+      console.log('homePageData', homePageData);
+      console.log('this.challenges', this.challenges);
     }, err => {
       console.log(err);
     });

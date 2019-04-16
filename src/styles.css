@@ -5,6 +5,11 @@
 @import "~primeng/resources/primeng.min.css";
 
 /*Default classes*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .w-100 {
   width: 100%;
 }

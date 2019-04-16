@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ActivationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { GlobalNotificationService } from '../../services/global-notification.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -8,12 +10,14 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  isNotificationShowed = false;
   isHidden = true;
+  notifications;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    private globalNotifcationService: GlobalNotificationService,
   ) {
   }
 
@@ -27,4 +31,13 @@ export class NavbarComponent implements OnInit {
         });
       });
   }
+
+  showNotification() {
+    const token = localStorage.getItem('sn_app_token');
+    this.isNotificationShowed = !this.isNotificationShowed;
+    this.globalNotifcationService.getNotifications(token).subscribe((data) => {
+      this.notifications = data;
+    });
+  }
+
 }

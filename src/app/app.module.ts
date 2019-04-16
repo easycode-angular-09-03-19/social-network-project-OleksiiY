@@ -9,6 +9,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { NavbarComponent } from './common/components/navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -22,8 +23,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     BrowserAnimationsModule,
     ToastModule,
     MatToolbarModule,
+    MatListModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

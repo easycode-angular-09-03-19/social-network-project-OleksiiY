@@ -7,9 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HomeInnerComponent implements OnInit {
   @Input() data;
-  constructor() { }
+
+
+  constructor() {
+  }
 
   ngOnInit() {
+
   }
 
 }

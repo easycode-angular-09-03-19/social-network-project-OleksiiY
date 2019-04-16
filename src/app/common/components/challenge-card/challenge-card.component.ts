@@ -7,7 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ChallengeCardComponent implements OnInit {
   @Input() challenge;
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
