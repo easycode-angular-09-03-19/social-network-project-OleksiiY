@@ -30,13 +30,13 @@ export class NavbarComponent implements OnInit {
           this.isHidden = !!value.withoutHeader;
         });
       });
-    this.globalNotifcationService.getNotifications().subscribe((data) => {
-      this.notifications = data;
-    });
   }
 
   showNotification() {
     this.isNotificationShowed = !this.isNotificationShowed;
+    this.globalNotifcationService.getNotifications().subscribe((data) => {
+      this.notifications = data;
+    });
   }
 
 }
