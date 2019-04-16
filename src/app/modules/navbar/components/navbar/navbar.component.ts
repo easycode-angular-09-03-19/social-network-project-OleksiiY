@@ -30,14 +30,13 @@ export class NavbarComponent implements OnInit {
           this.isHidden = !!value.withoutHeader;
         });
       });
+    this.globalNotifcationService.getNotifications().subscribe((data) => {
+      this.notifications = data;
+    });
   }
 
   showNotification() {
-    const token = localStorage.getItem('sn_app_token');
     this.isNotificationShowed = !this.isNotificationShowed;
-    this.globalNotifcationService.getNotifications(token).subscribe((data) => {
-      this.notifications = data;
-    });
   }
 
 }

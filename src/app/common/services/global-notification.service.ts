@@ -13,10 +13,8 @@ export class GlobalNotificationService {
   ) {
   }
 
-  getNotifications(token) {
-    return this.http.get(`${this.apiUrl}/public/users/notification`, {
-      headers: new HttpHeaders({ 'x-access-token': token })
-    });
+  getNotifications() {
+    return this.http.get(`${this.apiUrl}/public/users/notification`);
   }
 
 }
