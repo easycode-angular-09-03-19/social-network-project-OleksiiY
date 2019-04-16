@@ -32,23 +32,3 @@
   height: 100%;
 }
 
-.notification-icon {
-  flex-grow: 1;
-  text-align: right;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-.notification-list {
-  position: fixed;
-  right: 0;
-  top: 110;
-  background-color: #fff;
-  width: 400px;
-  opacity: 0.8;
-  z-index: 1000;
-}
-
-.notification-list .mat-list-item {
-  cursor: pointer;
-}

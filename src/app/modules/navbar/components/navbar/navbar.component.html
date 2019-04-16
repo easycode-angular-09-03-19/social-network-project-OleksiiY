@@ -11,8 +11,11 @@
     <i class="far fa-bell fa-2x"></i>
   </div>
 </mat-toolbar>
-<mat-list class="notification-list" *ngIf="isNotificationShowed">
-  <mat-list-item *ngIf="notifications">Didn't find any notification ...</mat-list-item>
-  <mat-list-item *ngFor="let item of notifications"> {{ item }} </mat-list-item>
-</mat-list>
+<ng-container *ngIf="isNotificationShowed">
+  <app-notifications [notifications]="notifications"></app-notifications>
+</ng-container>
+<!--<mat-list class="notification-list" *ngIf="isNotificationShowed">-->
+  <!--<mat-list-item *ngIf="notifications">Didn't find any notification ...</mat-list-item>-->
+  <!--<mat-list-item *ngFor="let item of notifications"> {{ item }} </mat-list-item>-->
+<!--</mat-list>-->
 
