@@ -1,0 +1,11 @@
+.cards-wrapper {
+  display: flex;
+  flex-shrink: 0;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.header-title {
+  text-align: center;
+  margin-top: 20px;
+}

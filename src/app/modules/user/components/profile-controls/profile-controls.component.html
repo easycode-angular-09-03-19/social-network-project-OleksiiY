@@ -1,0 +1,17 @@
+<mat-toolbar *ngIf="user">
+  <a class="logo">
+    <img [src]="user?.avatar" alt="">
+  </a>
+  <ul class="menu">
+    <li>
+      <p>{{ user.full_name }}</p>
+      <p>{{ user.country }}</p>
+    </li>
+    <li>
+      <p>
+        <i class="fas fa-star"></i>
+        Points {{ user.rank.points }}
+      </p>
+    </li>
+  </ul>
+</mat-toolbar>

@@ -1,0 +1,11 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title> {{ challenge.challenge_name }}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]= challenge?.background alt="Photo of a Shiba Inu">
+  <mat-card-content class="card-info">
+    <div> {{ challenge.awards | currency:'USD' }} </div>
+    <div> {{ challenge.end_date | date }}</div>
+    <div> Votes: {{ challenge.votes }}</div>
+  </mat-card-content>
+</mat-card>
