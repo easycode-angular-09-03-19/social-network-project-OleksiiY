@@ -4,7 +4,6 @@ import { filter } from 'rxjs/operators';
 import { GlobalNotificationService } from '../../../../common/services/global-notification.service';
 import { CurrentUserStoreService } from '../../../../common/services/current-user-store.service';
 
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -21,8 +20,9 @@ export class NavbarComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private globalNotifcationService: GlobalNotificationService,
-    private currentUser: CurrentUserStoreService
+    private currentUser: CurrentUserStoreService,
   ) {
+
   }
 
   ngOnInit() {
@@ -41,7 +41,6 @@ export class NavbarComponent implements OnInit {
       }
     });
   }
-
 
   showNotification() {
     this.isNotificationShowed = !this.isNotificationShowed;

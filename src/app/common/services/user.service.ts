@@ -35,6 +35,8 @@ export class UserService {
   }
 
   getUserImages() {
-    return this.http.get(`${this.apiUrl}/public/users/my-images/5c813af1120080255c5599b2`);
+    const id = this.globalAuth.userId;
+    console.log('id', id);
+    return this.http.get(`${this.apiUrl}/public/users/my-images/${id}`);
   }
 }

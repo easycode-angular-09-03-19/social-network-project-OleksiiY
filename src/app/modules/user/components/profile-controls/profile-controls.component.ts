@@ -10,7 +10,6 @@ export class ProfileControlsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('this.user', this.user);
   }
 
 }

@@ -6,7 +6,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class GlobalAuthService {
   private jwtHelper: JwtHelperService = new JwtHelperService();
-  constructor() { }
+  constructor() {
+  }
 
   public get isLogin(): boolean {
     if (localStorage.getItem('sn_app_token')) {
