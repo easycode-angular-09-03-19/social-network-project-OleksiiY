@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../services/home.service';
 import { zip } from 'rxjs';
 import { HomePageData } from '../../interfaces/HomePageData';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-home-page',
@@ -12,7 +13,8 @@ export class HomePageComponent implements OnInit {
   homePageData: HomePageData;
   challenges;
   constructor(
-    private homeService: HomeService
+    private homeService: HomeService,
+    private messageService: MessageService
   ) {
   }
 
@@ -24,9 +26,8 @@ export class HomePageComponent implements OnInit {
       this.homePageData = homePageData;
       this.challenges = challenges;
     }, err => {
-      console.log(err);
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Server Error' });
     });
-
   }
 
 }

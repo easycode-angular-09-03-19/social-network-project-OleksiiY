@@ -14,10 +14,11 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate() {
-    if (this.globalAuthService.isLogin) {
-      return true;
-    } else {
+    if (!this.globalAuthService.isLogin) {
       this.router.navigate(['/auth/login']);
+      return false;
     }
+    return true;
   }
+
 }

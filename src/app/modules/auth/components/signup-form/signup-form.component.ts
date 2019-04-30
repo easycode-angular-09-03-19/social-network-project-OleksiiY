@@ -52,17 +52,22 @@ export class SignupFormComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    if (this.signUpForm.invalid) {
-      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Validation failed' });
-      return console.log('Validate error');
-    }
+  createSignUpInfoObj() {
     const signUpInfo = Object.assign({}, this.signUpForm.value);
     signUpInfo['date_of_birth_day'] = signUpInfo.dob.getDay();
     signUpInfo['date_of_birth_month'] = signUpInfo.dob.getMonth();
     signUpInfo['date_of_birth_year'] = signUpInfo.dob.getFullYear();
     delete signUpInfo['repeatPassword'];
     delete signUpInfo['dob'];
+    return signUpInfo;
+  }
+
+  onSubmit() {
+    if (this.signUpForm.invalid) {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Validation failed' });
+      return console.log('Validate error');
+    }
+    const signUpInfo = this.createSignUpInfoObj();
     this.authService.signUp(signUpInfo).subscribe((res: SignUpServerAnswer) => {
       if (!res.error) {
         this.route.navigate(['/auth/login']);

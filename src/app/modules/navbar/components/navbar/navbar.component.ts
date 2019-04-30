@@ -43,10 +43,11 @@ export class NavbarComponent implements OnInit {
   }
 
   showNotification() {
-    this.isNotificationShowed = !this.isNotificationShowed;
     this.globalNotifcationService.getNotifications().subscribe((data) => {
+      console.log('data', data);
       this.notifications = data;
     });
+    this.isNotificationShowed = !this.isNotificationShowed;
   }
 
 }
