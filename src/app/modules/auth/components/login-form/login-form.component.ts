@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { GlobalAuthService } from '../../../../common/services/global-auth.service';
 import { LoginServerAnswer } from '../../interfaces/LoginServerAnswer';
 import { MessageService } from 'primeng/api';
+import { CurrentUserStoreService } from '../../../../common/services/current-user-store.service';
 
 @Component({
   selector: 'app-login-form',
@@ -21,7 +22,8 @@ export class LoginFormComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private globalAuthService: GlobalAuthService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private currentUser: CurrentUserStoreService,
   ) {
   }
 
@@ -38,6 +40,7 @@ export class LoginFormComponent implements OnInit {
     }
     this.authService.login({ ...this.loginForm.value }).subscribe((res: LoginServerAnswer) => {
       if (!res.error) {
+        this.currentUser.initCurrentUser();
         this.router.navigate(['/']);
       }
     }, err => {
