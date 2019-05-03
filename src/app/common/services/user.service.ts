@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CurrentUserStoreService } from './current-user-store.service';
 import { GlobalAuthService } from './global-auth.service';
+import { Followers } from '../../modules/user/interfaces/Followers';
+import { FollowersServerAnswear } from '../../modules/auth/interfaces/FollowersServerAnswear';
 
 @Injectable({
   providedIn: 'root'
@@ -44,29 +46,29 @@ export class UserService {
     return this.http.post(`${this.apiUrl}/public/users/upload-photos/${id}`, formData);
   }
 
-  getUserImages() {
+  getUserImages(): Observable<any> {
     const id = this.globalAuth.userId;
     return this.http.get(`${this.apiUrl}/public/users/my-images/${id}`);
   }
 
-  getFavouritesImages() {
+  getFavouritesImages(): Observable<any> {
     const id = this.globalAuth.userId;
     return this.http.get(`${this.apiUrl}/public/users/my-favorites/${id}?part=1&limit=20`);
   }
 
-  getFollowers() {
+  getFollowers(): Observable<Followers> {
     const id = this.globalAuth.userId;
-    return this.http.get(`${this.apiUrl}/public/users/my-followers-followings/${id}?part=1&limit=6&path=followings`);
+    return this.http.get<Followers>(`${this.apiUrl}/public/users/my-followers-followings/${id}?part=1&limit=6&path=followings`);
   }
 
-  getFollowings() {
+  getFollowings(): Observable<Followers> {
     const id = this.globalAuth.userId;
-    return this.http.get(`${this.apiUrl}/public/users/my-followers-followings/${id}?part=1&limit=6&path=followers`);
+    return this.http.get<Followers>(`${this.apiUrl}/public/users/my-followers-followings/${id}?part=1&limit=6&path=followers`);
   }
 
-  updateFollower(id) {
+  updateFollower(id): Observable<FollowersServerAnswear> {
     const body = {};
-    return this.http.put(`${this.apiUrl}/public/users/following/${id}`, body);
+    return this.http.put<FollowersServerAnswear>(`${this.apiUrl}/public/users/following/${id}`, body);
   }
 
 }
