@@ -10,6 +10,11 @@ import { ProfileTabsContainerComponent } from './components/profile-tabs-contain
 import { ProfileSelfiesComponent } from './components/profile-selfies/profile-selfies.component';
 import { PicturePreviewComponent } from './components/picture-preview/picture-preview.component';
 import { MatListModule, MatToolbarModule } from '@angular/material';
+import { ProfileFavouritesComponent } from './components/profile-favourites/profile-favourites.component';
+import { FavouritesItemComponent } from './components/favourites-item/favourites-item.component';
+import { ProfileFollowersComponent } from './components/profile-followers/profile-followers.component';
+import { ProfileFollowingComponent } from './components/profile-following/profile-following.component';
+import { FollowerItemComponent } from './components/follower-item/follower-item.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,12 @@ import { MatListModule, MatToolbarModule } from '@angular/material';
     ProfileControlsComponent,
     ProfileTabsContainerComponent,
     ProfileSelfiesComponent,
-    PicturePreviewComponent
+    PicturePreviewComponent,
+    ProfileFavouritesComponent,
+    FavouritesItemComponent,
+    ProfileFollowersComponent,
+    ProfileFollowingComponent,
+    FollowerItemComponent
   ],
   imports: [
     CommonModule,

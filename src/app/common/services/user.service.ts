@@ -11,11 +11,13 @@ import { GlobalAuthService } from './global-auth.service';
 })
 export class UserService {
   private apiUrl: string = environment.apiUrl;
+
   constructor(
     private http: HttpClient,
     private globalAuth: GlobalAuthService,
     private currentUser: CurrentUserStoreService
-  ) { }
+  ) {
+  }
 
   getUserById(id: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/public/users/get-info/${id}`).pipe(
@@ -27,6 +29,7 @@ export class UserService {
       })
     );
   }
+
   uploadCover(file: File): Observable<any> {
     const formData = new FormData();
     formData.append('coverImg', file);
@@ -34,8 +37,36 @@ export class UserService {
     return this.http.post(`${this.apiUrl}/public/users/upload-cover/${id}`, formData);
   }
 
+  uploadPhotos(files: any[]) {
+    const formData = new FormData();
+    files.forEach((file) => formData.append('userPhotos', file));
+    const id = this.globalAuth.userId;
+    return this.http.post(`${this.apiUrl}/public/users/upload-photos/${id}`, formData);
+  }
+
   getUserImages() {
     const id = this.globalAuth.userId;
     return this.http.get(`${this.apiUrl}/public/users/my-images/${id}`);
   }
+
+  getFavouritesImages() {
+    const id = this.globalAuth.userId;
+    return this.http.get(`${this.apiUrl}/public/users/my-favorites/${id}?part=1&limit=20`);
+  }
+
+  getFollowers() {
+    const id = this.globalAuth.userId;
+    return this.http.get(`${this.apiUrl}/public/users/my-followers-followings/${id}?part=1&limit=6&path=followings`);
+  }
+
+  getFollowings() {
+    const id = this.globalAuth.userId;
+    return this.http.get(`${this.apiUrl}/public/users/my-followers-followings/${id}?part=1&limit=6&path=followers`);
+  }
+
+  updateFollower(id) {
+    const body = {};
+    return this.http.put(`${this.apiUrl}/public/users/following/${id}`, body);
+  }
+
 }

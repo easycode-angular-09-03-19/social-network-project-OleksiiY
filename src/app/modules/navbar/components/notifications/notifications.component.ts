@@ -7,8 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NotificationsComponent implements OnInit {
   @Input() notifications;
+
   constructor() {
-    console.log('notifications', Boolean(this.notifications));
   }
 
   ngOnInit() {

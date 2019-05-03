@@ -12,6 +12,7 @@ import { MessageService } from 'primeng/api';
 export class HomePageComponent implements OnInit {
   homePageData: HomePageData;
   challenges;
+  isLoading = true;
   constructor(
     private homeService: HomeService,
     private messageService: MessageService
@@ -27,6 +28,8 @@ export class HomePageComponent implements OnInit {
       this.challenges = challenges;
     }, err => {
       this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Server Error' });
+    }, () => {
+      this.isLoading = false;
     });
   }
 

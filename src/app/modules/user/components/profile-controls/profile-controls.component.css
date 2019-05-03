@@ -7,6 +7,7 @@
 .menu {
   display: flex;
   list-style: none;
+  flex-wrap: wrap;
 }
 
 .menu li {
@@ -35,4 +36,8 @@
 .logo img {
   width: 100%;
   height: 100%;
+}
+
+.active {
+  color: darkblue;
 }

@@ -8,6 +8,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { NavbarModule } from './modules/navbar/navbar.module';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastModule,
-    NavbarModule
+    NavbarModule,
+    MatProgressBarModule
   ],
   providers: [
     MessageService,

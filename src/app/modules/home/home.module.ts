@@ -8,6 +8,7 @@ import { ChallengeCardComponent } from '../../common/components/challenge-card/c
 import { ChallengesListComponent } from '../../common/components/challenges-list/challenges-list.component';
 import { EmptyListComponent } from '../../common/components/empty-list/empty-list.component';
 import { MatCardModule } from '@angular/material/card';
+import { LoaderModule } from '../loader/loader.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    MatCardModule
+    MatCardModule,
+    LoaderModule
   ],
   providers: [HomeService]
 })

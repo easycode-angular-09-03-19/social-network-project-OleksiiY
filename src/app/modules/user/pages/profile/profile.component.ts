@@ -12,7 +12,6 @@ export class ProfileComponent implements OnInit {
   user;
   authUserId;
   id;
-  activeTab = 'selfies';
   constructor(
     private globalAuth: GlobalAuthService,
     private userService: UserService,
@@ -34,7 +33,6 @@ export class ProfileComponent implements OnInit {
   }
   uploadCover(cover) {
     this.userService.uploadCover(cover).subscribe((res) => {
-      console.log(res);
       if (!res.error) {
         this.getUser();
       }

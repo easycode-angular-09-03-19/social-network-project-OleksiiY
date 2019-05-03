@@ -13,5 +13,15 @@
         Points {{ user.rank.points }}
       </p>
     </li>
+    <li *ngFor="let item of tabList">
+      <a
+        href=""
+        [routerLink]="['/users', user._id]"
+        [queryParams]="{ tab: item.tab }"
+        [ngClass]="{ active: (activeTab | async) === item.tab}"
+      >
+        {{ item.text }}
+      </a>
+    </li>
   </ul>
 </mat-toolbar>
