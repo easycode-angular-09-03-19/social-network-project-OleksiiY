@@ -14,19 +14,23 @@ export class ProfileControlsComponent implements OnInit {
   tabList = [
     {
       tab: 'selfies',
-      text: 'Selfies'
+      text: 'Selfies',
+      prop: 'my_images'
     },
     {
       tab: 'favourites',
-      text: 'Favourites'
+      text: 'Favourites',
+      prop: 'favourites'
     },
     {
       tab: 'followers',
-      text: 'Followers'
+      text: 'Followers',
+      prop: 'followers'
     },
     {
       tab: 'following',
-      text: 'Following'
+      text: 'Following',
+      prop: 'followings'
     }
   ];
 

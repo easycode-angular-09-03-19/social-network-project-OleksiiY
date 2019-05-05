@@ -5,7 +5,7 @@
   <ul class="menu">
     <li><a href="/" [routerLink]="['/']" class="transition">Home</a></li>
     <li><a href="">Challenges</a></li>
-    <li><a href="">Winners</a></li>
+    <li><a [routerLink]="['/winners']">Winners</a></li>
     <li><a href="" *ngIf="userId" [routerLink]="['/users/', userId]">User profile</a></li>
   </ul>
   <div class="notification-icon" (click)="showNotification()">

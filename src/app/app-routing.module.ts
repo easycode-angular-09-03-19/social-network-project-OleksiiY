@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './common/guards/auth-guard';
 
 const routes: Routes = [
+  { path: 'winners', loadChildren: './modules/winners/winners.module#WinnersModule' },
   { path: 'auth', loadChildren: './modules/auth/auth.module#AuthModule', data: { withoutHeader: true } },
   { path: 'users/:id', loadChildren: './modules/user/user.module#UserModule' },
   { path: '', loadChildren: './modules/home/home.module#HomeModule', canActivate: [AuthGuard] }

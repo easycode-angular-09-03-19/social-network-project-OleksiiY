@@ -1,0 +1,7 @@
+<div class="container mt-5">
+  <div class="row">
+    <ng-container *ngFor="let winner of winners">
+      <app-winner-inner [winner]="winner" class="col-6 col-md-4"></app-winner-inner>
+    </ng-container>
+  </div>
+</div>

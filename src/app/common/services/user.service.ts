@@ -71,4 +71,8 @@ export class UserService {
     return this.http.put<FollowersServerAnswear>(`${this.apiUrl}/public/users/following/${id}`, body);
   }
 
+  getWinners() {
+    return this.http.get(`${this.apiUrl}/public/winners?part=1&limit=15`);
+  }
+
 }
