@@ -4,9 +4,9 @@
   </a>
   <ul class="menu">
     <li><a href="/" [routerLink]="['/']" class="transition">Home</a></li>
-    <li><a href="">Challenges</a></li>
     <li><a [routerLink]="['/winners']">Winners</a></li>
     <li><a href="" *ngIf="userId" [routerLink]="['/users/', userId]">User profile</a></li>
+    <li><a href="" [routerLink]="['/news']">News</a></li>
   </ul>
   <div class="notification-icon" (click)="showNotification()">
     <i class="far fa-bell fa-2x"></i>

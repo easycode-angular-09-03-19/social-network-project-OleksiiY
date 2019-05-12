@@ -24,7 +24,6 @@ export class FollowerItemComponent implements OnInit {
 
   updateFollower() {
     this.userService.updateFollower(this.user._id).subscribe((data) => {
-      console.log('data', data);
       this.isFollowed = !this.isFollowed;
       this.currentUserStoreService.initCurrentUser();
     });

@@ -75,4 +75,8 @@ export class UserService {
     return this.http.get(`${this.apiUrl}/public/winners?part=1&limit=15`);
   }
 
+  getNews() {
+    return this.http.get(`${this.apiUrl}/public/news?page=1&count=15`);
+  }
+
 }

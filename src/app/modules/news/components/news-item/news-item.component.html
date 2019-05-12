@@ -1,0 +1,19 @@
+<div class="container item">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="jumbotron">
+        <div class="follower-item-bg" [style.background]="grey">
+        </div>
+        <div class="avatar">
+          <img [src]="item?.owner.avatar" alt="">
+        </div>
+        <p class="text-center">{{ item?.owner.full_name }}</p>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="pic">
+        <img [src]="src" alt="">
+      </div>
+    </div>
+  </div>
+</div>
