@@ -1,25 +1,9 @@
-<!--<cdk-virtual-scroll-viewport-->
-<!--class="images-container"-->
-<!--[itemSize]="100"-->
-<!--(scrolledIndexChange)="onScrollChange($event)"-->
-<!--&gt;-->
-<!--<div *cdkVirtualFor="let img of images; trackBy: trackByIndex">-->
-<!--<img [appImgLoader]="img.url" alt="">-->
-<!--</div>-->
-<!--</cdk-virtual-scroll-viewport>-->
+<cdk-virtual-scroll-viewport
+  [itemSize]="100"
+  class="images-container"
+>
+  <div *cdkVirtualFor="let item of newsItems; trackBy: trackByIndex">
+    <app-news-item [item]=item></app-news-item>
+  </div>
+</cdk-virtual-scroll-viewport>
 
-<!--<div class="container">-->
-  <!--<div class="row">-->
-
-    <cdk-virtual-scroll-viewport
-      [itemSize]="100"
-      (scrolledIndexChange)="onScrollChange($event)"
-      class="images-container"
-    >
-      <div *cdkVirtualFor="let item of newsItems; trackBy: trackByIndex">
-        <!--<img [appImgLoader]="img.url" alt="">-->
-        <app-news-item [item]=item></app-news-item>
-      </div>
-    </cdk-virtual-scroll-viewport>
-
-<!--</div>-->

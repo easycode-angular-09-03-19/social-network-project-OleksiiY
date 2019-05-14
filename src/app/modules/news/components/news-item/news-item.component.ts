@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+declare var $: any;
 
 @Component({
   selector: 'app-news-item',
@@ -9,13 +9,17 @@ import { Component, Input, OnInit } from '@angular/core';
 export class NewsItemComponent implements OnInit {
   src;
   @Input() item;
+
   constructor() {
   }
 
   ngOnInit() {
-    console.log('this.item', this.item);
     this.src = this.item.pictures[0].url;
-
+    $('.pic').on('click', function () {
+      $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+      $('#imagemodal').modal('show');
+      $('.modal-backdrop').css('position', 'static');
+    });
   }
 
 }
