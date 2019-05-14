@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../../common/services/user.service';
+import { Winners } from '../../interfaces/winners';
 
 @Component({
   selector: 'app-winner-page',
@@ -13,7 +14,7 @@ export class WinnerPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.userService.getWinners().subscribe((data: any) => {
+    this.userService.getWinners().subscribe((data: Winners) => {
       this.winners = data.winners;
     });
   }
