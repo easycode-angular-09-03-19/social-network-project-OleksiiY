@@ -14,7 +14,6 @@ export class WinnerPageComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getWinners().subscribe((data: any) => {
-      console.log('data', data);
       this.winners = data.winners;
     });
   }
