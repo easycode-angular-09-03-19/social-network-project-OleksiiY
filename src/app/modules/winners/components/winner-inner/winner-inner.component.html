@@ -1,3 +1,5 @@
-<div class="h-300">
-  <img [src]="winner?.member_id.images[0].image_basic.url" alt="">
-</div>
+<ng-container *ngFor="let img of winner?.member_id.images">
+  <div class="h-300">
+    <img [src]="img.image_basic.url" alt="">
+  </div>
+</ng-container>
