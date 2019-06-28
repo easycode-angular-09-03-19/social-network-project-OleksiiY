@@ -1,0 +1,134 @@
+<form
+  [formGroup]="signUpForm"
+  (ngSubmit)="onSubmit()"
+  class="signUp-form"
+>
+  <mat-form-field class="w-50">
+    <input
+      matInput
+      placeholder="First Name"
+      formControlName="first_name"
+    >
+    <mat-error *ngIf="signUpForm.get('first_name').hasError('required')">
+      First name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-50">
+    <input
+      matInput
+      placeholder="Last Name"
+      formControlName="last_name"
+    >
+    <mat-error *ngIf="signUpForm.get('last_name').hasError('required')">
+      Last name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="w-100">
+    <input
+      matInput
+      placeholder="Nickame"
+      formControlName="nickname"
+    >
+    <mat-error *ngIf="signUpForm.get('nickname').hasError('required')">
+      First name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="w-50">
+    <input
+      matInput
+      placeholder="Email"
+      formControlName="email"
+    >
+    <mat-error *ngIf="signUpForm.get('email').hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-50">
+    <input
+      matInput
+      placeholder="Phone number"
+      formControlName="phone"
+    >
+    <mat-error *ngIf="signUpForm.get('phone').hasError('required')">
+      Phone number is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="w-100">
+    <mat-label>Select gender</mat-label>
+    <mat-select formControlName="gender_orientation">
+      <mat-option
+        *ngFor="let item of genders"
+        [value]="item.value"
+      >
+        {{item.value}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="signUpForm.get('gender_orientation').hasError('required')">
+      Gender is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <input matInput
+           [matDatepicker]="picker"
+           placeholder="Provide your DOB"
+           formControlName="dob"
+    >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="signUpForm.get('dob').hasError('required')">
+      DOB is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="w-50">
+    <input
+      matInput
+      placeholder="Country"
+      formControlName="country"
+    >
+    <mat-error *ngIf="signUpForm.get('country').hasError('required')">
+      Country <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-50">
+    <input
+      matInput
+      placeholder="City"
+      formControlName="city"
+    >
+    <mat-error *ngIf="signUpForm.get('city').hasError('required')">
+      City <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <input
+      matInput
+      placeholder="Password"
+      formControlName="password"
+      type="password"
+    >
+    <mat-error *ngIf="signUpForm.get('password').hasError('required')">
+      Password required
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <input
+      matInput
+      placeholder="Repeat Password"
+      formControlName="repeatPassword"
+      type="password"
+      [errorStateMatcher]="matcher"
+    >
+    <mat-error *ngIf="signUpForm.get('repeatPassword').hasError('required')">
+      Password required
+    </mat-error>
+    <mat-error
+      *ngIf="signUpForm.get('repeatPassword').hasError('notEqual') && !signUpForm.get('repeatPassword').hasError('required')">
+      Passwords is not equal
+    </mat-error>
+  </mat-form-field>
+  <button mat-raised-button color="primary" class="submit-btn">Sign up</button>
+</form>

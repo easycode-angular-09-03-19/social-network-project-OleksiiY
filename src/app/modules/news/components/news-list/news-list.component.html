@@ -1,0 +1,9 @@
+<cdk-virtual-scroll-viewport
+  [itemSize]="100"
+  class="images-container"
+>
+  <div *cdkVirtualFor="let item of newsItems; trackBy: trackByIndex">
+    <app-news-item [item]=item></app-news-item>
+  </div>
+</cdk-virtual-scroll-viewport>
+

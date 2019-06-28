@@ -1,0 +1,6 @@
+<h1 class="header-title">Challenges</h1>
+<div class="cards-wrapper">
+  <ng-container *ngFor="let item of challenges">
+    <app-challenge-card [challenge]="item"></app-challenge-card>
+  </ng-container>
+</div>

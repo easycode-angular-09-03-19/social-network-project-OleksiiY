@@ -1,0 +1,13 @@
+<div class="jumbotron">
+  <div class="follower-item-bg" [style.background-image]="'url(' + user?.cover + ')'">
+  </div>
+  <div class="avatar">
+    <img [src]="user?.avatar" alt="">
+  </div>
+  <p class="text-center">{{ user.full_name }}</p>
+  <button
+    class="btn btn-primary follow-button"
+    (click)="updateFollower()"
+  >{{ isFollowed? 'Following' : 'Follow'}}
+  </button>
+</div>

@@ -1,0 +1,15 @@
+.challenge-card {
+  width: 400px;
+  margin: 10px;
+  text-align: center;
+}
+
+.challenge-card img {
+  width: 100%;
+  height: 200px;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-evenly;
+}

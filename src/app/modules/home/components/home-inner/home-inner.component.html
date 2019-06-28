@@ -1,0 +1,12 @@
+<div *ngIf="data" id="main" [style.background-image]="'url(' + data?.homeBackground + ')'">
+  <div class="main-info">
+    <h1>Most Liked person</h1>
+    <h1><span class="most-wanted">Be Most Wanted</span></h1>
+    <p>{{ data?.innerText }}</p>
+  </div>
+</div>
+<div class="location-info">
+  <div>Cities {{ data?.cities }}</div>
+  <div>Countries{{ data?.countries }}</div>
+  <div>In {{ data?.regions }} regions of the world!</div>
+</div>
