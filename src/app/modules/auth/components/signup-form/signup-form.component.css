@@ -1,0 +1,10 @@
+.inputs-group-half {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signUp-form{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

@@ -1,0 +1,28 @@
+<mat-toolbar *ngIf="user">
+  <a class="logo">
+    <img [src]="user?.avatar" alt="">
+  </a>
+  <ul class="menu">
+    <li>
+      <p>{{ user.full_name }}</p>
+      <p>{{ user.country }}</p>
+    </li>
+    <li>
+      <p>
+        <i class="fas fa-star"></i>
+        Points {{ user.rank.points }}
+      </p>
+    </li>
+    <li *ngFor="let item of tabList">
+      <a
+        href=""
+        [routerLink]="['/users', user._id]"
+        [queryParams]="{ tab: item.tab }"
+        [ngClass]="{ active: (activeTab | async) === item.tab}"
+      >
+        {{ item.text }}
+      </a>
+      <span> {{ user[item.prop]?.length }}</span>
+    </li>
+  </ul>
+</mat-toolbar>

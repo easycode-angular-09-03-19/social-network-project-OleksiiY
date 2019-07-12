@@ -1,0 +1,6 @@
+<mat-list class="notification-list">
+  <mat-list-item *ngIf="notifications == false">Didn't find any notification ...</mat-list-item>
+  <ng-container *ngFor="let item of notifications">
+    <app-notification-item [value]="item"></app-notification-item>
+  </ng-container>
+</mat-list>
